@@ -7,6 +7,7 @@ ENV PKG_RELEASE   1
 RUN set -x \
 # create nginx user/group first, to be consistent throughout docker variants
     && adduser -S -D -H -u 1001 -h /var/cache/nginx -s /sbin/nologin -g 0 nginx \
+    && mkdir -p /var/cache/nginx \ 
     && chown nginx:0 /var/cache/nginx \
     && chmod 770 /var/cache/nginx \
     && apkArch="$(cat /etc/apk/arch)" \
